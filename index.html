@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🧱 스페셜 브릭 브레이커</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-wrapper">
+    <div id="hud">
+      <div class="hud-item">
+        <span class="hud-label">SCORE</span>
+        <span class="hud-value" id="score">0</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">BALLS</span>
+        <span class="hud-value" id="ball-count">1</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">LEVEL</span>
+        <span class="hud-value" id="level">1</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">LIVES</span>
+        <span class="hud-value" id="lives">3</span>
+      </div>
+    </div>
+
+    <!-- Active powerup display bar -->
+    <div id="powerup-bar"></div>
+
+    <div id="canvas-container">
+      <canvas id="gameCanvas"></canvas>
+
+      <!-- Start overlay -->
+      <div id="overlay" class="visible">
+        <div class="overlay-content">
+          <h1 class="game-title">🧱 BRICK BREAKER</h1>
+          <p class="game-subtitle">구글 스페셜 에디션</p>
+
+          <div class="legend-grid">
+            <div class="legend-col">
+              <p class="legend-section">기본</p>
+              <div class="legend-item"><span class="legend-brick b-normal"></span> 일반 벽돌</div>
+              <div class="legend-item"><span class="legend-brick b-hard"></span> ■ 강화 벽돌 (2~3타)</div>
+              <div class="legend-item"><span class="legend-brick b-double"></span> ✕2 공 2배</div>
+              <div class="legend-item"><span class="legend-brick b-row"></span> ↔ 가로 폭발</div>
+              <div class="legend-item"><span class="legend-brick b-col"></span> ↕ 세로 폭발</div>
+            </div>
+            <div class="legend-col">
+              <p class="legend-section">구글 특수</p>
+              <div class="legend-item"><span class="legend-brick b-laser"></span> 🔫 레이저 패들</div>
+              <div class="legend-item"><span class="legend-brick b-wide"></span> 📐 와이드 패들</div>
+              <div class="legend-item"><span class="legend-brick b-slow"></span> 🐢 슬로우</div>
+              <div class="legend-item"><span class="legend-brick b-shield"></span> 🛡 안전망</div>
+              <div class="legend-item"><span class="legend-brick b-bomb"></span> 💣 폭탄</div>
+              <div class="legend-item"><span class="legend-brick b-life"></span> ❤ 목숨+1</div>
+            </div>
+          </div>
+
+          <button id="start-btn" class="btn-primary">게임 시작</button>
+        </div>
+      </div>
+
+      <!-- Game over overlay -->
+      <div id="gameover-overlay" class="hidden">
+        <div class="overlay-content">
+          <h1 class="game-title">GAME OVER</h1>
+          <p class="final-score">최종 점수: <span id="final-score">0</span></p>
+          <button id="restart-btn" class="btn-primary">다시 시작</button>
+        </div>
+      </div>
+
+      <!-- Level up overlay -->
+      <div id="levelup-overlay" class="hidden">
+        <div class="overlay-content small">
+          <h2 class="level-title">LEVEL UP! 🎉</h2>
+          <p id="level-display">LEVEL 2</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="controls-hint">
+      <span>← → 또는 마우스로 패들 이동</span>
+      <span>SPACE = 일시정지</span>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
